@@ -23,10 +23,10 @@
         })
     }
 
-        function searchName() {
-          let name = $("#name").val();
+    function searchName() {
+      let name = $("#name").val();
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.order("name", false).equalTo("name",name).fetchAll()
+      TestDataClass.order("name", false).equalTo("name", name).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -65,6 +65,7 @@
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
+    <button class="btn" onclick="searchLevel()">Level</button>
   </div>
   <div id="message">message area</div>
 </body>
