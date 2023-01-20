@@ -32,24 +32,49 @@
                 })
         }
 
-        function searchLevelLT() {
-            let level = parseInt($("#level").val());
+        function searchclassroom() {
+            let name = $("#classroom").val();
             let TestDataClass = ncmb.DataStore(db);
-            TestDataClass.lessThan("level", level).fetchAll()
+            TestDataClass.equalTo("classroom", name).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+        function searchteacher() {
+            let name = $("#teacher").val();
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.equalTo("teacher", name).fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
         }
 
-        function searchLevelGT() {
-            let level = parseInt($("#level").val());
+        function searchdate() {
+            let name = $("#date").val();
             let TestDataClass = ncmb.DataStore(db);
-            TestDataClass.greaterThan("level", level).fetchAll()
+            TestDataClass.equalTo("date", name).fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
         }
 
+        function searchday() {
+            let name = $("#day").val();
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.equalTo("day", name).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchperlod() {
+            let level = $("#perlod").val();
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.greaterThan("perlod", level).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
 
         function showResults(results) {
             // テーブルのヘッダを生成
@@ -82,6 +107,10 @@
     <div>
         <label for="day">day:</label>
         <input id="day" type="text" placeholder="day">
+    </div>
+   <div>
+        <label for="date">date:</label>
+        <input id="date" type="text" placeholder="What day?">
     </div>
     <div id="button">
         <button class="btn" onclick="fetchAll()">Fetch All</button>
